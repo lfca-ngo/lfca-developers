@@ -1,33 +1,51 @@
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-import ACTIONS from '../../data/actions.json'
-import { Action } from '../../models/action'
+import { fetchAllActions } from '../../services/contentful'
+import { Action } from '../../services/internal/models/action'
 
 /**
- * @swagger
- * /api/actions:
- *   get:
- *     operationId: actions
- *     tags: [Action]
- *     responses:
- *       200:
- *         description: Action
- *         content:
- *           application/json:
- *             schema:
- *               type: array
- *               items:
- *                 type: object
- *                 $ref: '#/components/schemas/Action'
+ *  @swagger
+ *  /actions:
+ *    get:
+ *      operationId: actions
+ *      tags: [actions]
+ *      summary: List all actions
+ *      responses:
+ *        200:
+ *          description: Actions
+ *          content:
+ *            application/json:
+ *              schema:
+ *                type: array
+ *                items:
+ *                  type: object
+ *                  $ref: '#/components/schemas/Action'
+ *        403:
+ *          $ref: '#/components/responses/Unauthorized'
  */
-export default function handler(
+export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Action[]>
+  res: NextApiResponse<Action[] | { error: string }>
 ) {
-  const result: Action[] = ACTIONS.map((a) => ({
-    id: a.id,
-    title: a.title,
+  const actions = await fetchAllActions()
+
+  const result: Action[] = actions.items.map((a) => ({
+    aboutText: documentToHtmlString(a.fields.aboutText),
+    benefits: a.fields.benefits
+      ? documentToHtmlString(a.fields.benefits)
+      : undefined,
+    examples: a.fields.examples
+      ? documentToHtmlString(a.fields.examples)
+      : undefined,
+    heroImageUrl: a.fields.heroImage.fields.file.url,
+    iconUrl: a.fields.badge.fields.file.url,
+    id: a.fields.actionId,
+    tags: a.fields.tags?.map((t) => t.fields.name || '') || [],
+    title: a.fields.title,
   }))
+
+  // res.status(500).json({ error: 'failed to load data' })
 
   res.status(200).json(result)
 }

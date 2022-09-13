@@ -13,7 +13,15 @@ const swaggerHandler = withSwagger({
       version: '1.0.0',
     },
     openapi: '3.0.0',
+    servers: [
+      {
+        url:
+          process.env.NODE_ENV === 'development'
+            ? '/api'
+            : 'https://api.lfca.ngo',
+      },
+    ],
   },
-  schemaFolders: ['models'],
+  schemaFolders: ['services/internal/openapi'],
 })
 export default swaggerHandler()

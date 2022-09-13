@@ -3,17 +3,21 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "next dev",
+    "generate": "rm -rf services/internal/openapi/schemas && typeconv -f ts -t oapi --oapi-format yaml --output-extension swagger.yaml --output-directory services/internal/openapi/schemas services/internal/models/*.ts",
+    "lint": "next lint",
+    "start": "next start"
   },
   "dependencies": {
+    "@contentful/rich-text-html-renderer": "15.13.1",
     "@stoplight/elements": "7.6.5",
+    "contentful": "9.1.34",
     "next": "12.2.5",
     "next-swagger-doc": "0.3.6",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "typeconv": "1.8.0"
   },
   "devDependencies": {
     "@types/node": "18.7.16",
