@@ -5,7 +5,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "generate": "rm -rf services/internal/openapi/schemas && typeconv -f ts -t oapi --oapi-format yaml --output-extension swagger.yaml --output-directory services/internal/openapi/schemas services/internal/models/*.ts",
+    "generate": "rm -rf services/internal/openapi/components/schemas && typeconv -f ts -t oapi --oapi-format yaml --output-extension swagger.yaml --output-directory services/internal/openapi/components/schemas services/internal/models/*.ts",
     "lint": "next lint",
     "start": "next start"
   },
