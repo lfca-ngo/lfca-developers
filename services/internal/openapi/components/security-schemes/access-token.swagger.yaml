@@ -1,7 +1,6 @@
 components:
   securitySchemes:
     accessToken:
-      name: access_token
       type: http
       scheme: bearer
       description: |-

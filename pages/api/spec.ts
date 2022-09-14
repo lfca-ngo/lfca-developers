@@ -24,15 +24,20 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       definition: {
         info: {
           contact: {
-            email: 'info@lfca.earth',
+            email: 'info@lfca.ngo',
             name: 'LFCA',
-            url: 'https://developer.lfca.earth/',
+            url: 'https://lfca.ngo/',
           },
           description,
           title: 'LFCA API',
           version: '1.0.0',
         },
         openapi: '3.0.0',
+        security: [
+          {
+            accessToken: [],
+          },
+        ],
         servers: [
           {
             url:

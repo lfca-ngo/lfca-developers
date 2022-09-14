@@ -1,9 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-export function middleware(req: NextRequest) {
-  const token = req.headers.get('authorization')
+const accessTokensByClient = JSON.parse(
+  process.env.ACCESS_TOKENS_BY_CLIENT || '{}'
+) as Record<string, string>
+const allAccessTokens = Object.values(accessTokensByClient)
 
-  if (!token) {
+export function middleware(req: NextRequest) {
+  const token = req.headers.get('authorization')?.split('Bearer ')[1]
+
+  if (!token || !allAccessTokens.includes(token)) {
     return NextResponse.redirect(new URL('/api/auth/unauthorized', req.url))
   }
 
