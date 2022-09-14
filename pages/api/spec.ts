@@ -3,13 +3,23 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import path from 'path'
 import swaggerJsdoc from 'swagger-jsdoc'
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+function createPaths(folders: string[]) {
+  return folders.flatMap((folder) => {
+    const sourceDirectory = path.join(process.cwd(), folder)
+    const buildApiDirectory = path.join(process.cwd(), '.next/server', folder)
+    return [
+      ...['ts', 'swagger.yaml'].map(
+        (fileType) => `${sourceDirectory}/**/*.${fileType}`
+      ),
+      ...['js', 'swagger.yaml'].map(
+        (fileType) => `${buildApiDirectory}/**/*.${fileType}`
+      ),
+    ]
+  })
+}
+
+export default function handler(_: NextApiRequest, res: NextApiResponse) {
   try {
-    const apiPath = path.join(process.cwd(), '/pages/api')
-    const componentsPath = path.join(
-      process.cwd(),
-      '/services/internal/openapi/components'
-    )
     const description = fs
       .readFileSync(
         path.join(
@@ -20,7 +30,10 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       .toString()
 
     const swaggerSpec = swaggerJsdoc({
-      apis: [`${apiPath}/**/*.ts`, `${componentsPath}/**/*.yaml`],
+      apis: createPaths([
+        '/pages/api',
+        '/services/internal/openapi/components',
+      ]),
       definition: {
         info: {
           contact: {
