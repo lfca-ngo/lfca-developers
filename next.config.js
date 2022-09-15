@@ -2,18 +2,20 @@
 const nextConfig = {
   reactStrictMode: true,
   async rewrites() {
-    return [
-      {
-        destination: '/api/:path*',
-        has: [
-          {
-            type: 'host',
-            value: 'api.lfca.ngo',
-          },
-        ],
-        source: '/:path*',
-      },
-    ]
+    return {
+      beforeFiles: [
+        {
+          destination: '/api/:path*',
+          has: [
+            {
+              type: 'host',
+              value: 'api.lfca.ngo',
+            },
+          ],
+          source: '/:path*',
+        },
+      ],
+    }
   },
   swcMinify: true,
 }
