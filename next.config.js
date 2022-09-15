@@ -15,7 +15,7 @@ const nextConfig = {
           {
             key: 'Access-Control-Allow-Headers',
             value:
-              'Accept, Accept-Version, Authoriozation, Content-Length, Content-Type, Date',
+              'accept,accept-version,authorization,content-length,content-type,date',
           },
         ],
         source: '/(.*)',
