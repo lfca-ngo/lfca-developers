@@ -3,10 +3,10 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import path from 'path'
 import swaggerJsdoc from 'swagger-jsdoc'
 
-const IMPORT_BASE_PATH =
+const API_ROUTES_FOLDER =
   process.env.NODE_ENV === 'production'
-    ? path.join(process.cwd(), '.next/server')
-    : path.join(process.cwd())
+    ? path.join(process.cwd(), '.next/server', '/pages/api/**/*.js')
+    : path.join(process.cwd(), '/pages/api/**/*.ts')
 
 export default function handler(_: NextApiRequest, res: NextApiResponse) {
   try {
@@ -22,10 +22,10 @@ export default function handler(_: NextApiRequest, res: NextApiResponse) {
     const swaggerSpec = swaggerJsdoc({
       apis: [
         // Import definitions from comments in API routes
-        path.join(IMPORT_BASE_PATH, '/pages/api/**/*.ts'),
+        API_ROUTES_FOLDER,
         // Import additional definitions from yaml files
         path.join(
-          IMPORT_BASE_PATH,
+          process.cwd(),
           '/services/internal/openapi/components/**/*.yaml'
         ),
       ],
