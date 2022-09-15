@@ -1,12 +1,34 @@
-import { useRouter } from 'next/router'
+import { GetStaticPaths, GetStaticProps } from 'next'
 
 import { APIDocs } from '../../components'
 
-function ApiDeeplink() {
-  const router = useRouter()
-  const { path } = router.query
+interface ApiDeeplinkProps {
+  path: string
+}
 
-  return <APIDocs path={`/${Array.isArray(path) ? path.join('/') : path}`} />
+function ApiDeeplink({ path }: ApiDeeplinkProps) {
+  return <APIDocs isSSR={typeof window === 'undefined'} path={path} />
+}
+
+export const getStaticProps: GetStaticProps<ApiDeeplinkProps> = async ({
+  params,
+}) => {
+  return {
+    props: {
+      path: `/${
+        Array.isArray(params?.path)
+          ? params?.path.join('/')
+          : params?.path || '/'
+      }`,
+    },
+  }
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  return {
+    fallback: 'blocking',
+    paths: [],
+  }
 }
 
 export default ApiDeeplink

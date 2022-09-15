@@ -1,0 +1,7 @@
+components:
+  securitySchemes:
+    accessToken:
+      type: http
+      scheme: bearer
+      description: |-
+        [Contact us](mailto:info@lfca.ngo) in order to get you personal access token.

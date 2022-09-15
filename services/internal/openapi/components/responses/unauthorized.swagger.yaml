@@ -1,0 +1,9 @@
+components:
+  responses:
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            type: object
+            $ref: '#/components/schemas/Error'

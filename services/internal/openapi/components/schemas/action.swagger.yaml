@@ -1,0 +1,51 @@
+openapi: 3.0.0
+info:
+  title: Converted from action.swagger.yaml with typeconv
+  version: '1'
+  x-id: action.swagger.yaml
+  x-comment: >-
+    Generated from services/internal/models/action.ts by core-types-json-schema
+    (https://github.com/grantila/core-types-json-schema) on behalf of typeconv
+    (https://github.com/grantila/typeconv)
+paths: {}
+components:
+  schemas:
+    Action:
+      properties:
+        aboutText:
+          title: Action.aboutText
+          type: string
+        benefits:
+          title: Action.benefits
+          type: string
+        examples:
+          title: Action.examples
+          type: string
+        heroImageUrl:
+          title: Action.heroImageUrl
+          type: string
+        iconUrl:
+          title: Action.iconUrl
+          type: string
+        id:
+          title: Action.id
+          type: string
+        tags:
+          items:
+            title: Action.tags.[]
+            type: string
+          title: Action.tags
+          type: array
+        title:
+          title: Action.title
+          type: string
+      required:
+        - aboutText
+        - heroImageUrl
+        - iconUrl
+        - id
+        - tags
+      additionalProperties: false
+      title: Action
+      description: LFCA Action module
+      type: object

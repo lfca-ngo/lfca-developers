@@ -1,0 +1,27 @@
+openapi: 3.0.0
+info:
+  title: Converted from error.swagger.yaml with typeconv
+  version: '1'
+  x-id: error.swagger.yaml
+  x-comment: >-
+    Generated from services/internal/models/error.ts by core-types-json-schema
+    (https://github.com/grantila/core-types-json-schema) on behalf of typeconv
+    (https://github.com/grantila/typeconv)
+paths: {}
+components:
+  schemas:
+    Error:
+      properties:
+        code:
+          title: Error.code
+          type: number
+        message:
+          title: Error.message
+          type: string
+      required:
+        - code
+        - message
+      additionalProperties: false
+      title: Error
+      description: LFCA API error
+      type: object
