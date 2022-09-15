@@ -9,7 +9,7 @@ export function middleware(req: NextRequest) {
   const token = req.headers.get('authorization')?.split('Bearer ')[1]
 
   if (!token || !allAccessTokens.includes(token)) {
-    return NextResponse.redirect(new URL('/api/auth/unauthorized', req.url))
+    return NextResponse.rewrite(new URL('/api/auth/unauthorized', req.url))
   }
 
   return NextResponse.next()
