@@ -3,6 +3,21 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import path from 'path'
 import swaggerJsdoc from 'swagger-jsdoc'
 
+function createPaths(folders: string[]) {
+  return folders.flatMap((folder) => {
+    const sourceDirectory = path.join(process.cwd(), folder)
+    const buildApiDirectory = path.join(process.cwd(), '.next/server', folder)
+    return [
+      ...['ts', 'swagger.yaml'].map(
+        (fileType) => `${sourceDirectory}/**/*.${fileType}`
+      ),
+      ...['js', 'swagger.yaml'].map(
+        (fileType) => `${buildApiDirectory}/**/*.${fileType}`
+      ),
+    ]
+  })
+}
+
 const API_ROUTES_FOLDER =
   process.env.NODE_ENV === 'production'
     ? path.join(process.cwd(), '.next/server', '/pages/api/**/*.js')
@@ -24,15 +39,9 @@ export default function handler(_: NextApiRequest, res: NextApiResponse) {
         // Import definitions from comments in API routes
         API_ROUTES_FOLDER,
         // Import additional definitions from yaml files
-        path.join(
-          process.cwd(),
-          '/services/internal/openapi/components/**/*.swagger.yaml'
-        ),
-        path.join(
-          process.cwd(),
-          '.next/server',
-          '/services/internal/openapi/components/**/*.swagger.yaml'
-        ),
+        ...createPaths([
+          '/services/internal/openapi/components/**/*.swagger.yaml',
+        ]),
       ],
       definition: {
         info: {
