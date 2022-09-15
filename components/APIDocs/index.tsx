@@ -1,11 +1,13 @@
 import '@stoplight/elements/styles.min.css'
 
-import dynamic from 'next/dynamic'
+import { API } from '@stoplight/elements'
 
-const API = dynamic(
-  () => import('@stoplight/elements').then((mod) => mod.API),
-  { ssr: false }
-)
+// import dynamic from 'next/dynamic'
+
+// const API = dynamic(
+//   () => import('@stoplight/elements').then((mod) => mod.API),
+//   { ssr: false }
+// )
 
 interface APIDocsProps {
   path: string
@@ -19,8 +21,8 @@ export function APIDocs({ path }: APIDocsProps) {
       apiDescriptionUrl="/api/spec"
       basePath={BASE_PATH}
       logo="/img/logo.svg"
-      router="history"
-      staticRouterPath={`/${BASE_PATH}${path}`}
+      router="static"
+      staticRouterPath={`${path}`}
     />
   )
 }
