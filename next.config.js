@@ -6,7 +6,7 @@ const nextConfig = {
         headers: [
           {
             key: 'Access-Control-Allow-Origin',
-            value: process.env.API_HOST,
+            value: `https://${process.env.API_HOST}`,
           },
           {
             key: 'Access-Control-Allow-Methods',
