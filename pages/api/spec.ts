@@ -18,11 +18,6 @@ function createPaths(folders: string[]) {
   })
 }
 
-const API_ROUTES_FOLDER =
-  process.env.NODE_ENV === 'production'
-    ? path.join(process.cwd(), '.next/server', '/pages/api/**/*.js')
-    : path.join(process.cwd(), '/pages/api/**/*.ts')
-
 export default function handler(_: NextApiRequest, res: NextApiResponse) {
   try {
     const description = fs
@@ -35,14 +30,12 @@ export default function handler(_: NextApiRequest, res: NextApiResponse) {
       .toString()
 
     const swaggerSpec = swaggerJsdoc({
-      apis: [
+      apis: createPaths([
         // Import definitions from comments in API routes
-        API_ROUTES_FOLDER,
+        '/pages/api',
         // Import additional definitions from yaml files
-        ...createPaths([
-          '/services/internal/openapi/components/**/*.swagger.yaml',
-        ]),
-      ],
+        '/services/internal/openapi/components',
+      ]),
       definition: {
         info: {
           contact: {
