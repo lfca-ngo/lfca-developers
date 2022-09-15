@@ -8,7 +8,7 @@ const nextConfig = {
         has: [
           {
             type: 'host',
-            value: 'api.lfca.ngo',
+            value: process.env.API_HOST,
           },
         ],
         source: '/:path*',

@@ -17,7 +17,7 @@ export function middleware(req: NextRequest) {
 
 export const config = {
   matcher: [
-    // Routes when coming from `api.lfca.ngo`
+    // Routes when coming from `process.env.API_HOST` which are rewritten to not have `/api` path
     '/actions/:path*',
     // Routes when coming from `developers.lfca.ngo`
     '/api/actions/:path*',
