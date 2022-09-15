@@ -2,13 +2,6 @@ import '@stoplight/elements/styles.min.css'
 
 import { API } from '@stoplight/elements'
 
-// import dynamic from 'next/dynamic'
-
-// const API = dynamic(
-//   () => import('@stoplight/elements').then((mod) => mod.API),
-//   { ssr: false }
-// )
-
 interface APIDocsProps {
   isSSR: boolean
   path: string
