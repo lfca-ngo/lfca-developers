@@ -8,7 +8,7 @@ const nextConfig = {
         has: [
           {
             type: 'host',
-            value: 'vercel.app',
+            value: 'api.lfca.ngo',
           },
         ],
         source: '/:path*',
