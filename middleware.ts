@@ -16,5 +16,10 @@ export function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/api/actions/:path*'],
+  matcher: [
+    // Routes when coming from `api.lfca.ngo`
+    '/actions/:path*',
+    // Routes when coming from `developers.lfca.ngo`
+    '/api/actions/:path*',
+  ],
 }
