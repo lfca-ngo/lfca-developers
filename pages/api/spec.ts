@@ -58,7 +58,7 @@ export default function handler(_: NextApiRequest, res: NextApiResponse) {
             url:
               process.env.NODE_ENV === 'development'
                 ? '/api'
-                : 'https://api.lfca.ngo',
+                : `https://${process.env.API_HOST}`,
           },
         ],
       },
