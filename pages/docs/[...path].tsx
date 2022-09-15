@@ -7,7 +7,7 @@ interface ApiDeeplinkProps {
 }
 
 function ApiDeeplink({ path }: ApiDeeplinkProps) {
-  return <APIDocs path={path} />
+  return <APIDocs isSSR={typeof window === 'undefined'} path={path} />
 }
 
 export const getStaticProps: GetStaticProps<ApiDeeplinkProps> = async ({

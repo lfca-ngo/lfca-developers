@@ -10,19 +10,20 @@ import { API } from '@stoplight/elements'
 // )
 
 interface APIDocsProps {
+  isSSR: boolean
   path: string
 }
 
 const BASE_PATH = '/docs'
 
-export function APIDocs({ path }: APIDocsProps) {
+export function APIDocs({ isSSR, path }: APIDocsProps) {
   return (
     <API
       apiDescriptionUrl="/api/spec"
       basePath={BASE_PATH}
       logo="/img/logo.svg"
-      router="static"
-      staticRouterPath={`${path}`}
+      router={isSSR ? 'static' : 'history'}
+      staticRouterPath={isSSR ? path : `/${BASE_PATH}${path}`}
     />
   )
 }
