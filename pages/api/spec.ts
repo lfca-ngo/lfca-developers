@@ -13,11 +13,11 @@ const SWAGGER_SPECS_FOLDER =
     ? path.join(
         process.cwd(),
         '.next/server',
-        '/services/internal/openapi/components/**/*.yaml'
+        '/services/internal/openapi/components/**/*.swagger.yaml'
       )
     : path.join(
         process.cwd(),
-        '/services/internal/openapi/components/**/*.yaml'
+        '/services/internal/openapi/components/**/*.swagger.yaml'
       )
 
 export default function handler(_: NextApiRequest, res: NextApiResponse) {
