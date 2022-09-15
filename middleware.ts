@@ -5,7 +5,10 @@ const accessTokensByClient = JSON.parse(
 ) as Record<string, string>
 const allAccessTokens = Object.values(accessTokensByClient)
 
-export function middleware(req: NextRequest) {
+export async function middleware(req: NextRequest) {
+  // We do not want authenticatiojn for OPTIONS requests so that CORS checks can pass
+  if (req.method === 'OPTIONS') return NextResponse.next()
+
   const token = req.headers.get('authorization')?.split('Bearer ')[1]
 
   if (!token || !allAccessTokens.includes(token)) {
