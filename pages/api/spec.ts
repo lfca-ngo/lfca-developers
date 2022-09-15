@@ -8,17 +8,10 @@ const API_ROUTES_FOLDER =
     ? path.join(process.cwd(), '.next/server', '/pages/api/**/*.js')
     : path.join(process.cwd(), '/pages/api/**/*.ts')
 
-const SWAGGER_SPECS_FOLDER =
-  process.env.NODE_ENV === 'production'
-    ? path.join(
-        process.cwd(),
-        '.next/server',
-        '/services/internal/openapi/components/**/*.swagger.yaml'
-      )
-    : path.join(
-        process.cwd(),
-        '/services/internal/openapi/components/**/*.swagger.yaml'
-      )
+const SWAGGER_SPECS_FOLDER = path.join(
+  process.cwd(),
+  '/services/internal/openapi/components/**/*.swagger.yaml'
+)
 
 export default function handler(_: NextApiRequest, res: NextApiResponse) {
   try {
