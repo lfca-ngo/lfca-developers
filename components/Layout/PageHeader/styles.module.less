@@ -1,7 +1,34 @@
 .page-header {
-  height: 60px;
+  height: 75px;
   border-bottom: 1px solid @border-color-default;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: @chalk;
+
+  [class~='logo-wrapper'] {
+    padding: 0 15px;
+    display: flex;
+    font-size: 25px;
+    align-items: center;
+
+    [class~='title'] {
+      margin-left: 8px;
+      color: @black;
+      b {
+        margin-right: 4px;
+        .font-semi();
+      }
+    }
+  }
+
+  nav {
+    padding: 0 @default-padding;
+
+    [class~='ant-menu'] {
+      background-color: transparent;
+      border-bottom: none;
+    }
+  }
 }
