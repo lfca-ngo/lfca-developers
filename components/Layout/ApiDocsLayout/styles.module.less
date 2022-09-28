@@ -1,7 +1,6 @@
 .api-docs-layout {
   display: flex;
   flex-direction: column;
-  height: 100vh;
 
   * {
     --text-h: 0;
@@ -52,8 +51,8 @@
     --color-canvas-400: #cbd5e7;
     --color-canvas-500: #c0cde2;
     --color-canvas-dialog: #fff;
-    --color-border-dark: hsla(var(--canvas-h), 30%, 72%, 0.5);
-    --color-border: hsla(var(--canvas-h), 32%, 78%, 0.5);
+    --color-border-dark: @border-color-default-darkmode;
+    --color-border: @border-color-default;
     --color-border-light: hsla(var(--canvas-h), 24%, 84%, 0.5);
     --color-border-input: hsla(var(--canvas-h), 24%, 72%, 0.8);
     --color-border-button: hsla(var(--canvas-h), 24%, 20%, 0.65);
@@ -97,7 +96,6 @@
     --color-danger-light: #f58e8e;
     --color-danger-tint: rgba(241, 91, 91, 0.25);
     --color-on-danger: #fff;
-    color: var(--color-text);
     // font sizes
     --font-prose: @font-family, ui-sans-serif, system-ui, -apple-system,
       BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,

@@ -1,6 +1,5 @@
-import { PageHeader } from 'antd'
-
 import { PageFooter } from '../PageFooter'
+import { PageHeader } from '../PageHeader'
 import styles from './styles.module.less'
 
 interface ApiDocsLayoutProps {
