@@ -1,5 +1,3 @@
-import '@stoplight/elements/styles.min.css'
-
 import { API } from '@stoplight/elements'
 
 import { ApiDocsLayout } from '../Layout'
