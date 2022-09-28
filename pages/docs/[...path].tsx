@@ -1,13 +1,14 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 
 import { APIDocs } from '../../components'
+import { isSSR } from '../../utils'
 
 interface ApiDeeplinkProps {
   path: string
 }
 
 function ApiDeeplink({ path }: ApiDeeplinkProps) {
-  return <APIDocs isSSR={typeof window === 'undefined'} path={path} />
+  return <APIDocs isSSR={isSSR} path={path} />
 }
 
 export const getStaticProps: GetStaticProps<ApiDeeplinkProps> = async ({
