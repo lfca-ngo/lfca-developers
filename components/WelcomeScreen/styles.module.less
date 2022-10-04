@@ -1,0 +1,21 @@
+.welcome-screen {
+  display: flex;
+  text-align: center;
+  margin: 60px 0 0;
+
+  [class~='ant-list'] {
+    margin: 40px 0 0;
+
+    [class~='ant-card'] {
+      text-align: left;
+
+      &[class~='disabled'] {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  @media (min-width: @screen-md) {
+    margin: 120px 0 0;
+  }
+}

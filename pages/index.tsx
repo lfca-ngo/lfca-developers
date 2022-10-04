@@ -1,5 +1,12 @@
+import { WelcomeScreen } from '../components'
+import { DefaultLayout } from '../components/Layout/DefaultLayout'
+
 function Index({}) {
-  return <h1>Coming soon...</h1>
+  return (
+    <DefaultLayout>
+      <WelcomeScreen />
+    </DefaultLayout>
+  )
 }
 
 export default Index

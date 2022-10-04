@@ -1,6 +1,4 @@
-import { PageHeader } from 'antd'
-
-import { PageFooter } from '../PageFooter'
+import { PageFooter, PageHeader } from '../'
 import styles from './styles.module.less'
 
 interface DefaultLayoutProps {
@@ -11,7 +9,7 @@ export const DefaultLayout = ({ children }: DefaultLayoutProps) => {
   return (
     <div className={styles['default-layout']}>
       <PageHeader />
-      {children}
+      <main>{children}</main>
       <PageFooter />
     </div>
   )

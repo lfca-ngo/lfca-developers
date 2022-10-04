@@ -8,10 +8,12 @@ interface ApiDocsLayoutProps {
 
 export const ApiDocsLayout = ({ children }: ApiDocsLayoutProps) => {
   return (
-    <div className={styles['api-docs-layout']}>
-      <PageHeader />
-      {children}
-      <PageFooter />
+    <div className={'api-docs-layout-root'}>
+      <div className={styles['api-docs-layout']}>
+        <PageHeader />
+        {children}
+        <PageFooter />
+      </div>
     </div>
   )
 }
