@@ -1,6 +1,6 @@
-import '@stoplight/elements/styles.min.css'
-
 import { API } from '@stoplight/elements'
+
+import { ApiDocsLayout } from '../Layout'
 
 interface APIDocsProps {
   isSSR: boolean
@@ -11,12 +11,14 @@ const BASE_PATH = '/docs'
 
 export function APIDocs({ isSSR, path }: APIDocsProps) {
   return (
-    <API
-      apiDescriptionUrl="/api/spec"
-      basePath={BASE_PATH}
-      logo="/img/logo.svg"
-      router={isSSR ? 'static' : 'history'}
-      staticRouterPath={isSSR ? path : `/${BASE_PATH}${path}`}
-    />
+    <ApiDocsLayout>
+      <API
+        apiDescriptionUrl="/api/spec"
+        basePath={BASE_PATH}
+        logo="/img/logo.svg"
+        router={isSSR ? 'static' : 'history'}
+        staticRouterPath={isSSR ? path : `/${BASE_PATH}${path}`}
+      />
+    </ApiDocsLayout>
   )
 }

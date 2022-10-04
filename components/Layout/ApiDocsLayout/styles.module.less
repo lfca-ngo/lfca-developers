@@ -1,0 +1,70 @@
+.api-docs-layout {
+  display: flex;
+  flex-direction: column;
+
+  [class~='sl-text-base'] {
+    font-size: @font-size-sm;
+  }
+
+  [class~='sl-text-xs'] {
+    font-size: 13px;
+  }
+
+  [class~='sl-text-sm'] {
+    font-size: @font-size-xs;
+  }
+
+  // basic styling of the container including mobile
+  [class~='sl-elements'] {
+    // wrapping the main 2-col-layout
+    [class~='sl-elements-api'] {
+      // left column
+      > :first-child {
+        padding-top: 0;
+
+        // min-width is set as inline styles, overwrite for mobile
+        @media (max-width: @screen-md-max) {
+          min-width: 0 !important;
+        }
+
+        > [class~='sl-flex']:first-of-type {
+          display: none;
+        }
+      }
+      // right column
+      > :nth-child(2) {
+        @media (max-width: @screen-md-max) {
+          padding-left: @default-padding;
+          padding-right: @default-padding;
+
+          > div > [class~='sl-stack'] > [class~='sl-flex'] {
+            width: 200%;
+            overflow-x: scroll;
+            padding-right: @default-padding;
+          }
+        }
+      }
+    }
+  }
+
+  [class~='sl-prose'] {
+    --fs-paragraph: @font-size-base;
+    --fs-paragraph-small: @font-size-sm;
+  }
+
+  [class~='sl-h-lg'] {
+    height: 40px;
+  }
+
+  [class~='sl-badge'] {
+    border: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  a[href*='stoplight'] {
+    display: none;
+  }
+}

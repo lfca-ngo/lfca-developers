@@ -1,4 +1,7 @@
-import '../styles/globals.css'
+import 'antd/dist/antd.less'
+import '../styles/global.less'
+import '../styles/stoplight-styles.less'
+import '../styles/stoplight-lfca-theme.less'
 
 import type { AppProps } from 'next/app'
 
