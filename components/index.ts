@@ -1,3 +1,3 @@
 export * from './APIDocs'
-export * from './WelcomeScreen'
 export * from './Layout'
+export * from './WelcomeScreen'
