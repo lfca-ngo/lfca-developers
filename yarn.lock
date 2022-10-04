@@ -22,7 +22,7 @@
   resolved "https://registry.yarnpkg.com/@ant-design/icons-svg/-/icons-svg-4.2.1.tgz#8630da8eb4471a4aabdaed7d1ff6a97dcb2cf05a"
   integrity sha512-EB0iwlKDGpG93hW8f85CTJTs4SvMX7tt5ceupvhALp1IF44SeUFOMhKUOYqpsoYWQKAOuTRDMqn75rEaKDp0Xw==
 
-"@ant-design/icons@^4.7.0":
+"@ant-design/icons@4.7.0", "@ant-design/icons@^4.7.0":
   version "4.7.0"
   resolved "https://registry.yarnpkg.com/@ant-design/icons/-/icons-4.7.0.tgz#8c3cbe0a556ba92af5dc7d1e70c0b25b5179af0f"
   integrity sha512-aoB4Z7JA431rt6d4u+8xcNPPCrdufSRMUOpxa1ab6mz1JCQZOEVolj2WVs/tDFmN62zzK30mNelEsprLYsSF3g==
@@ -1888,7 +1888,7 @@
     deepmerge "^4.2.2"
     svgo "^2.8.0"
 
-"@svgr/webpack@^6.3.1":
+"@svgr/webpack@6.3.1":
   version "6.3.1"
   resolved "https://registry.yarnpkg.com/@svgr/webpack/-/webpack-6.3.1.tgz#001d03236ebb03bf47c0a4b92d5423e05095ebe6"
   integrity sha512-eODxwIUShLxSMaRjzJtrj9wg89D75JLczvWg9SaB5W+OtVTkiC1vdGd8+t+pf5fTlBOy4RRXAq7x1E3DUl3D0A==
@@ -2193,7 +2193,7 @@ ansi-styles@^4.1.0:
   dependencies:
     color-convert "^2.0.1"
 
-antd@^4.23.3:
+antd@4.23.3:
   version "4.23.3"
   resolved "https://registry.yarnpkg.com/antd/-/antd-4.23.3.tgz#25dd4e2020d9bf2de2f1734eeb48b3b51af2b4b3"
   integrity sha512-qkvb9BAlkBRkPyFgjfDgTEiWwyMG85pTrcsfFq2VGUr4NLuCIDIQiAqTjQYk4qJ7iGYghPomrLXkulHUofswWg==
@@ -2567,7 +2567,7 @@ charset@^1.0.0:
   resolved "https://registry.yarnpkg.com/charset/-/charset-1.0.1.tgz#8d59546c355be61049a8fa9164747793319852bd"
   integrity sha512-6dVyOOYjpfFcL1Y4qChrAoQLRHvj2ziyhcm0QJlhOcAhykL/k1kTUPbeo+87MNRTRdk2OIIsIXbuF3x2wi5EXg==
 
-classnames@2.x, classnames@^2.2.1, classnames@^2.2.3, classnames@^2.2.5, classnames@^2.3.1, classnames@^2.3.2:
+classnames@2.3.2, classnames@2.x, classnames@^2.2.1, classnames@^2.2.3, classnames@^2.2.5, classnames@^2.3.1:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.2.tgz#351d813bf0137fcc6a76a16b88208d2560a0d924"
   integrity sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==
@@ -4423,14 +4423,14 @@ language-tags@^1.0.5:
   dependencies:
     language-subtag-registry "~0.3.2"
 
-less-loader@^11.0.0:
+less-loader@11.0.0:
   version "11.0.0"
   resolved "https://registry.yarnpkg.com/less-loader/-/less-loader-11.0.0.tgz#a31b2bc5cdfb62f1c7de9b2d01cd944c22b1a024"
   integrity sha512-9+LOWWjuoectIEx3zrfN83NAGxSUB5pWEabbbidVQVgZhN+wN68pOvuyirVlH1IK4VT1f3TmlyvAnCXh8O5KEw==
   dependencies:
     klona "^2.0.4"
 
-less@^4.1.3:
+less@4.1.3:
   version "4.1.3"
   resolved "https://registry.yarnpkg.com/less/-/less-4.1.3.tgz#175be9ddcbf9b250173e0a00b4d6920a5b770246"
   integrity sha512-w16Xk/Ta9Hhyei0Gpz9m7VS8F28nieJaL/VyShID7cYvP6IL5oHeL6p4TXSDJqZE/lNv0oJ2pGVjJsRkfwm5FA==
@@ -4928,7 +4928,7 @@ needle@^3.1.0:
     iconv-lite "^0.6.3"
     sax "^1.2.4"
 
-next-with-less@^2.0.5:
+next-with-less@2.0.5:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/next-with-less/-/next-with-less-2.0.5.tgz#901dc94918bb19f08e879a5bc7b11b44c9351f6c"
   integrity sha512-1MJDcgFOPucFPCMXV7rTqcWiLI2nLSBi8bA6msvkiNLhYyZMXaFl4MkyYf7eOEUUEtA/c5eD0grPhbcDkrKqPQ==
