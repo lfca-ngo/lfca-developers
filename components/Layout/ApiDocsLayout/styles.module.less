@@ -14,11 +14,35 @@
     font-size: @font-size-xs;
   }
 
-  [class~='sl-elements-api'] {
-    > [class~='sl-flex']:first-of-type {
-      padding-top: 0;
-      > [class~='sl-flex']:first-of-type {
-        display: none;
+  // basic styling of the container including mobile
+  [class~='sl-elements'] {
+    // wrapping the main 2-col-layout
+    [class~='sl-elements-api'] {
+      // left column
+      > :first-child {
+        padding-top: 0;
+
+        // min-width is set as inline styles, overwrite for mobile
+        @media (max-width: @screen-md-max) {
+          min-width: 0 !important;
+        }
+
+        > [class~='sl-flex']:first-of-type {
+          display: none;
+        }
+      }
+      // right column
+      > :nth-child(2) {
+        @media (max-width: @screen-md-max) {
+          padding-left: @default-padding;
+          padding-right: @default-padding;
+
+          > div > [class~='sl-stack'] > [class~='sl-flex'] {
+            width: 200%;
+            overflow-x: scroll;
+            padding-right: @default-padding;
+          }
+        }
       }
     }
   }
