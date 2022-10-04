@@ -22,7 +22,7 @@ const LINKS = [
 export const WelcomeScreen = () => {
   const { push } = useRouter()
 
-  const handleItemClick = (key: string) => {
+  const handleItemClick = (key?: string) => {
     if (key) push(key)
   }
 
@@ -50,7 +50,7 @@ export const WelcomeScreen = () => {
               <Card
                 className={classNames({ disabled: item.disabled })}
                 hoverable={!item.disabled}
-                onClick={() => handleItemClick(item.slug)}
+                onClick={() => handleItemClick(item?.slug)}
                 title={
                   <Space>
                     <ArrowRightOutlined /> {item.title}

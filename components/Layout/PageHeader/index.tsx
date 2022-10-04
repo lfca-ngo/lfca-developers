@@ -1,11 +1,23 @@
-import { Menu } from 'antd'
+import { Button } from 'antd'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 
 import styles from './styles.module.less'
+
+const ITEMS = [
+  {
+    key: '/',
+    label: 'Home',
+  },
+  {
+    key: 'docs',
+    label: 'Documentation',
+  },
+]
+
 export const PageHeader = () => {
   const { push } = useRouter()
-  const handleMenuSelect = ({ key }: { key: string }) => {
+  const handleMenuSelect = (key: string) => {
     push(key)
   }
 
@@ -26,20 +38,15 @@ export const PageHeader = () => {
       </div>
 
       <nav>
-        <Menu
-          items={[
-            {
-              key: '/',
-              label: 'Home',
-            },
-            {
-              key: 'docs',
-              label: 'Documentation',
-            },
-          ]}
-          mode="horizontal"
-          onSelect={handleMenuSelect}
-        />
+        <ul>
+          {ITEMS.map((item) => (
+            <li key={item.key}>
+              <Button onClick={() => handleMenuSelect(item.key)} type="link">
+                {item.label}
+              </Button>
+            </li>
+          ))}
+        </ul>
       </nav>
     </header>
   )
