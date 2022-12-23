@@ -32,12 +32,12 @@ export const WelcomeScreen = () => {
         <h1>Documentation</h1>
         <p>
           Want to learn more? Ask us a{' '}
-          <a href="mailto:timo@lfca.earth" rel="noreferrer" target="_blank">
+          <a href="mailto:timo@lfca.ngo" rel="noreferrer" target="_blank">
             question
           </a>{' '}
           or check our{' '}
           <a
-            href="https://github.com/lfca-earth/"
+            href="https://github.com/lfca-ngo/"
             rel="noreferrer"
             target="_blank"
           >
